@@ -1,11 +1,47 @@
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 //Phone Detail card name dile besi relavant hoto
 const PhoneDetailsPage = ({ phone }) => {
-	const { image, phone_name, brand_name } = phone || {};
+	const { id, image, phone_name, brand_name } = phone || {};
 
-	const handleAddToFavorite = () => {
-		console.log(phone);
+	const handleAddToFavorite = (id) => {
+		const addFavoriteArray = [];
+
+		const getSavedFavorite = JSON.parse(localStorage.getItem("favorites"));
+		// console.log(getSavedFavorite); //array [{}]
+		if (!getSavedFavorite) {
+			addFavoriteArray.push(phone);
+			localStorage.setItem("favorites", JSON.stringify(addFavoriteArray));
+			Swal.fire({
+				icon: "success",
+				title: "Added To Favorites",
+				text: "Visit favorites section to see your added products!",
+			});
+		} else {
+			const isSimillar = getSavedFavorite?.find(
+				(phone) => phone.id === id,
+			);
+
+			if (!isSimillar) {
+				addFavoriteArray.push(...getSavedFavorite, phone);
+				localStorage.setItem(
+					"favorites",
+					JSON.stringify(addFavoriteArray),
+				);
+				Swal.fire({
+					icon: "success",
+					title: "Added To Favorites",
+					text: "Visit favorites section to see your added products!",
+				});
+			} else {
+				Swal.fire({
+					icon: "error",
+					title: "Already Added",
+					text: "Can't added multiple times!",
+				});
+			}
+		}
 	};
 
 	return (
@@ -34,7 +70,7 @@ const PhoneDetailsPage = ({ phone }) => {
 						</h4>
 						<a className="inline-block" href="#">
 							<button
-								onClick={handleAddToFavorite}
+								onClick={() => handleAddToFavorite(id)}
 								className="flex select-none items-center gap-2 rounded-lg py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-gray-900 transition-all bg-pink-100 hover:bg-pink-100/50 hover:text-pink-600 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
 								type="button"
 							>
