@@ -10,14 +10,14 @@ const NavBar = () => {
 				<nav>
 					<ul className=" flex gap-14">
 						{/* Home Route */}
-						<li>
+						<li className="hover:underline hover:text-pink-600">
 							<NavLink
 								to="/"
 								className={({ isActive, isPending }) =>
 									isPending
 										? "pending"
 										: isActive
-										? "text-red-600 underline"
+										? "text-pink-600 underline"
 										: ""
 								}
 							>
@@ -25,14 +25,14 @@ const NavBar = () => {
 							</NavLink>
 						</li>
 						{/* Favorirte Route */}
-						<li>
+						<li className="hover:underline hover:text-pink-600">
 							<NavLink
 								to="/favorite"
 								className={({ isActive, isPending }) =>
 									isPending
 										? "pending"
 										: isActive
-										? "text-red-600 underline"
+										? "text-pink-600 underline"
 										: ""
 								}
 							>
@@ -40,14 +40,14 @@ const NavBar = () => {
 							</NavLink>
 						</li>
 						{/* Login Route */}
-						<li>
+						<li className=" hover:underline hover:text-pink-600">
 							<NavLink
 								to="/login"
 								className={({ isActive, isPending }) =>
 									isPending
 										? "pending"
 										: isActive
-										? "text-red-600 underline"
+										? "text-pink-600 underline"
 										: ""
 								}
 							>
