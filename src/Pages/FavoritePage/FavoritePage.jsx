@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react";
 import FavoritePhoneCard from "./FavoritePhoneCard";
+// import { useOutletContext } from "react-router-dom";
 
 const FavoritePage = () => {
+	// Use of outlet context
+	// const outletGlobalValue = useOutletContext();
+	// console.log(outletGlobalValue);
+
 	const [favorites, setFavorites] = useState([]);
 	const [noDataFound, setNoDataFound] = useState(""); // Ekhane Empty array [], false, empty string "" deya jeto
 	const [seeMore, setSeeMore] = useState(false);

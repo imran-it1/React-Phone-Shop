@@ -48,7 +48,7 @@ const PhoneCard = ({ phone }) => {
 					</p>
 				</div>
 				<div className="p-6 pt-0">
-					<Link to={`/phones/${id}`}>
+					<Link to={`/phones/${id}`} state={phone_name}>
 						<button className="block normal-case w-full select-none rounded-lg bg-pink-200 hover:bg-pink-300 py-3 px-6 text-center align-middle text-sm font-bold text-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85]">
 							See Details
 						</button>
