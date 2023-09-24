@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const FavoritePhoneCard = ({ phone }) => {
 	const { image, phone_name, brand_name, price } = phone || {};
-	console.log(phone);
+
 	return (
 		<div className=" mt-10">
 			<div className="flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
