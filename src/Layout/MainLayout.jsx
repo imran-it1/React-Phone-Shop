@@ -4,8 +4,6 @@ import { useEffect } from "react";
 
 const MainLayout = () => {
 	const location = useLocation();
-	console.log(location);
-
 	useEffect(() => {
 		if (location.pathname === "/") {
 			document.title = `phone - home`;

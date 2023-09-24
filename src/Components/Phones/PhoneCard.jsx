@@ -2,6 +2,7 @@ import Rating from "react-rating";
 import { Link } from "react-router-dom";
 const PhoneCard = ({ phone }) => {
 	const { id, image, phone_name, brand_name, price, rating } = phone || {};
+
 	return (
 		<div>
 			<div className="relative flex flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">

@@ -1,20 +1,32 @@
 import { useLoaderData } from "react-router-dom";
 import Banner from "../../Components/Header/Banner/Banner";
 import Phones from "../../Components/Phones/Phones";
-import useGetPhones from "../../Hook/useGetPhones";
+import { useState } from "react";
+// import useGetPhones from "../../Hook/useGetPhones";
 
 const HomePage = () => {
 	const phones = useLoaderData();
-	console.log(phones);
 
 	// OR using custom hook
-	const getPhones = useGetPhones();
-	console.log(getPhones);
+	// const getPhones = useGetPhones();
+
+	const [searchText, setSearchText] = useState("");
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+	};
+
+	const handleInputText = (e) => {
+		setSearchText(e.target.value);
+	};
 
 	return (
 		<div>
-			<Banner></Banner>
-			<Phones phones={phones}></Phones>
+			<Banner
+				handleSubmit={handleSubmit}
+				handleInputText={handleInputText}
+			></Banner>
+			<Phones phones={phones} searchText={searchText}></Phones>
 		</div>
 	);
 };
